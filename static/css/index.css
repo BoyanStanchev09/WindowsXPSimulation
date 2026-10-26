@@ -1,0 +1,173 @@
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+    background: url("/media/wallpaper.jpg") center center / cover fixed no-repeat;
+}
+
+.taskbar {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 3px 8px 3px 4px;
+    color: #fff;
+    background: linear-gradient(180deg, #3b8cf5 0%, #1764d5 8%, #286cdb 48%, #1452b5 100%);
+    border-top: 1px solid #6ca9ff;
+    box-shadow: 0 -1px 3px #0006;
+    font: 13px Tahoma, Arial, sans-serif;
+}
+
+.start-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-width: 92px;
+    height: 34px;
+    border: 1px solid #3d8b2b;
+    border-radius: 0 14px 14px 0;
+    color: #fff;
+    background: linear-gradient(180deg, #78c94a, #3c9b22 55%, #277719);
+    box-shadow: inset 0 1px 1px #ffffff80, 1px 0 3px #123;
+    font: italic bold 17px Tahoma, Arial, sans-serif;
+    text-shadow: 1px 1px 1px #245b16;
+    cursor: default;
+}
+
+.start-area {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.start-menu {
+    position: absolute;
+    bottom: 37px;
+    left: 0;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-sizing: border-box;
+    width: 220px;
+    padding: 7px;
+    border: 1px solid #1b4e91;
+    border-radius: 5px 5px 0 0;
+    background: linear-gradient(90deg, #f3f6fc 0%, #fff 18%, #fff 100%);
+    box-shadow: 2px -2px 8px #0006;
+    color: #222;
+}
+
+.start-area:not([open]) .start-menu {
+    display: none;
+}
+
+.start-area > summary {
+    list-style: none;
+}
+
+.start-area > summary::-webkit-details-marker {
+    display: none;
+}
+
+.start-menu-heading {
+    margin: -7px -7px 5px;
+    padding: 12px 10px;
+    border-bottom: 1px solid #9bb8dd;
+    border-radius: 4px 4px 0 0;
+    color: #fff;
+    background: linear-gradient(180deg, #3988dc, #1555a8);
+    font-weight: bold;
+    text-shadow: 1px 1px #16427a;
+}
+
+.start-menu a {
+    display: block;
+    padding: 9px 10px;
+    border: 1px solid transparent;
+    color: #222;
+    background: transparent;
+    text-align: left;
+    font: 14px Tahoma, Arial, sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.start-menu a:hover,
+.start-menu a:focus-visible {
+    border-color: #8ab5e5;
+    background: #dcecff;
+    outline: none;
+}
+
+
+.start-mark {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    width: 16px;
+    height: 16px;
+    transform: skewY(-8deg);
+}
+
+.start-mark span:nth-child(1),
+.start-mark span:nth-child(4) {
+    background: #f5d544;
+}
+
+.start-mark span:nth-child(2) {
+    background: #e94b3c;
+}
+
+.start-mark span:nth-child(3) {
+    background: #4ca9e8;
+}
+
+.taskbar-window {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    box-sizing: border-box;
+    width: min(230px, 40vw);
+    height: 29px;
+    padding: 0 10px;
+    overflow: hidden;
+    border: 1px solid #154d9f;
+    border-radius: 3px;
+    background: linear-gradient(180deg, #174b9a, #3478d3);
+    box-shadow: inset 1px 1px 2px #102e68;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tray {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 78px;
+    height: 34px;
+    margin-left: auto;
+    border-right: 1px solid #1655ad;
+    border-left: 1px solid #74a9ed;
+    background: linear-gradient(180deg, #0d70c9, #3195e7 50%, #1473cc);
+    box-shadow: inset 1px 0 #1259b1;
+    font-size: 12px;
+}

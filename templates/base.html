@@ -1,13 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    {% block extra_head %}{% endblock %}
 
 </head>
 <body>
     {% block content %}
 
     {% endblock %}
+    <footer class="taskbar" aria-label="Desktop taskbar">
+        <details class="start-area">
+            <summary class="start-button">
+                <span class="start-mark" aria-hidden="true"></span>
+                Start
+            </summary>
+            <div class="start-menu">
+                <div class="start-menu-heading">Windows XP Simulation</div>
+                <a href="{% url 'restart' %}">Restart</a>
+                <a href="{% url 'shutdown' %}">Shut Down</a>
+            </div>
+        </details>
+        <div class="taskbar-window" aria-current="page">
+            <span aria-hidden="true">Desktop</span>
+            Windows XP Simulation
+        </div>
+        <div class="tray" aria-label="System tray">12:00 PM</div>
+    </footer>
 </body>
+
 </html>

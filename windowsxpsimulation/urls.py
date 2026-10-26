@@ -20,12 +20,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path, include
 
-from windowsxpsimulation.views import IndexView
+from windowsxpsimulation.views import IndexView, RestartView, ShutDownView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('files', include('files.urls')),
+    path('restart/', RestartView.as_view(), name='restart'),
+    path('shutdown/', ShutDownView.as_view(), name='shutdown'),
+    path('files/', include('files.urls')),
+    path('folders/', include('folders.urls')),
 ]
 
 if settings.DEBUG:
