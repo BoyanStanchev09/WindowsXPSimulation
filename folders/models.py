@@ -7,7 +7,8 @@ from files.models import File
 # Create your models here.
 class Folder(models.Model):
     name = models.CharField(max_length=25, unique=True)
-    parent_folder = models.OneToOneField('Folder', on_delete=models.CASCADE)
+    parent_folder = models.OneToOneField(
+        'Folder', on_delete=models.SET_NULL, null=True, blank=True)
 
     @property
     def contents(self) -> tuple[QuerySet[File]|None, QuerySet[Folder]|None]:
@@ -19,8 +20,8 @@ class Folder(models.Model):
     def location(self) -> str:
         locations_str = self.name
         while self.parent_folder:
-            locations_str = f'{self.parent_folder.name}/{locations_str}'
-        return locations_str
+            locations_str = f'{self.parent_folder.name}\\{locations_str}'
+        return 'C:\\' + locations_str
 
     def __str__(self):
         return self.name

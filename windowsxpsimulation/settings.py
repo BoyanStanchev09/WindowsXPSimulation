@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 PROJECT_APPS = [
-
+    'files.apps.FilesConfig',
+    'folders.apps.FoldersConfig',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',
