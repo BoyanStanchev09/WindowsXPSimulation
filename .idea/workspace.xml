@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="941d48d4-30c8-4d04-a8e1-2c7d53323ed6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/files/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0120488-8e26-46bd-a53f-9dcf73d2d3e1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0120488-8e26-46bd-a53f-9dcf73d2d3e1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/files/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/migrations/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/files/choices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/files/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/folders/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/folders/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/folders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/folders/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windowsxpsimulation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/windowsxpsimulation/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="941d48d4-30c8-4d04-a8e1-2c7d53323ed6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,7 +108,7 @@
       <option name="presentableId" value="Default" />
       <updated>1792960582803</updated>
       <workItem from="1792960583820" duration="4634000" />
-      <workItem from="1793019448008" duration="6032000" />
+      <workItem from="1793019448008" duration="6864000" />
     </task>
     <servers />
   </component>
