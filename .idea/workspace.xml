@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="941d48d4-30c8-4d04-a8e1-2c7d53323ed6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/folders/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/files/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/folders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/folders/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windowsxpsimulation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/windowsxpsimulation/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windowsxpsimulation/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/windowsxpsimulation/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windowsxpsimulation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/windowsxpsimulation/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1792960582803</updated>
       <workItem from="1792960583820" duration="4634000" />
-      <workItem from="1793019448008" duration="9828000" />
+      <workItem from="1793019448008" duration="11269000" />
     </task>
     <servers />
   </component>

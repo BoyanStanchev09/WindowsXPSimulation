@@ -15,6 +15,7 @@ class File(models.Model):
     last_updated = models.DateTimeField(auto_now=True)
     folder = models.ForeignKey(
         'folders.Folder', on_delete=models.SET_NULL, null=True, blank=True)
+    short_cut = models.OneToOneField('folders.ShortCut', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.name + '.' + self.extension

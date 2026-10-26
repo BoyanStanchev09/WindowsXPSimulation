@@ -4,6 +4,36 @@ body {
     margin: 0;
 }
 
+.desktop-shortcut {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 84px;
+    color: #fff;
+    font: 12px Tahoma, Arial, sans-serif;
+    text-align: center;
+    text-shadow: 1px 1px 2px #000, -1px -1px 2px #000;
+}
+
+.desktop-shortcut img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.this-pc-shortcut {
+    top: 20px;
+    left: 20px;
+}
+
+.trash-shortcut {
+    right: 20px;
+    bottom: 50px;
+}
+
 [hidden] {
     display: none !important;
 }
