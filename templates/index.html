@@ -2,11 +2,49 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <div class="desktop-shortcut this-pc-shortcut">
+    <div class="desktop-icon" id="this-pc">
         <img src="/media/this-pc.png" alt="">
         <span>This PC</span>
     </div>
-    <div class="desktop-shortcut trash-shortcut">
+
+    <div class="desktop-icons">
+        {% for folder in folders %}
+            <div class="desktop-icon">
+            <img src="/media/folder.png" alt="">
+                <span>{{ folder.name }}</span>
+            </div>
+        {% endfor %}
+
+        {% for file in files %}
+            <div class="desktop-icon">
+                <img src="/media/file.png" alt="">
+                <span>{{ file.name }}.{{ file.extension }}</span>
+            </div>
+        {% endfor %}
+
+        {% for shortcut in shortcuts %}
+            <div class="desktop-icon">
+                <span class="desktop-icon-image">
+                {% if shortcut.from_file %}
+                    <img src="/media/file.png" alt="">
+                    <img src="/media/shortcut.png" alt="">
+                {% else %}
+                    <img src="/media/folder.png" alt="">
+                    <img src="/media/shortcut.png" alt="">
+                {% endif %}
+                </span>
+                    <span>
+                    {% if shortcut.from_file %}
+                        {{ shortcut.from_file.name }}.{{ shortcut.from_file.extension }}
+                    {% else %}
+                        {{ shortcut.from_folder.name }}
+                    {% endif %}
+                </span>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="desktop-icon" id="recycle-bin">
         <img src="/media/trash-can.png" alt="">
         <span>Recycle Bin</span>
     </div>

@@ -60,6 +60,15 @@ class ShortCut(models.Model):
     def to_desktop(self) -> bool:
         return self.to is None
 
+    @property
+    def type(self) -> str:
+        if self.from_file is None:
+             return 'file'
+        elif self.from_folder is None:
+            return 'folder'
+        else:
+            return 'unknown'
+
     def __str__(self):
         entity = ''
         location = ''
@@ -67,7 +76,7 @@ class ShortCut(models.Model):
         if self.from_folder:
             entity = self.from_folder.name
         elif self.from_file:
-            entity = self.from_file.name
+            entity = self.from_file.name + '.' + self.from_file.extension
 
         if self.to:
             location = self.to.name
