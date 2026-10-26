@@ -13,10 +13,11 @@ class Folder(models.Model):
     short_cut = models.OneToOneField('ShortCut', on_delete=models.SET_NULL, null=True, blank=True)
 
     @property
-    def contents(self) -> tuple[QuerySet[File]|None, QuerySet[Folder]|None]:
+    def contents(self) -> tuple[QuerySet[File]|None, QuerySet[Folder]|None, QuerySet[ShortCut]|None]:
         files = File.objects.filter(folder=self)
         folders = Folder.objects.filter(parent_folder=self)
-        return files, folders
+        shortcuts = ShortCut.objects.filter(to=self)
+        return files, folders, shortcuts
 
     @property
     def location(self) -> str:
@@ -58,3 +59,18 @@ class ShortCut(models.Model):
     @property
     def to_desktop(self) -> bool:
         return self.to is None
+
+    def __str__(self):
+        entity = ''
+        location = ''
+
+        if self.from_folder:
+            entity = self.from_folder.name
+        elif self.from_file:
+            entity = self.from_file.name
+
+        if self.to:
+            location = self.to.name
+        else:
+            location = 'Desktop'
+        return f'{entity} shortcut to {location}'
