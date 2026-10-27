@@ -16,10 +16,10 @@
         {% endfor %}
 
         {% for file in files %}
-            <div class="desktop-icon">
+            <a class="desktop-icon" href="{% url 'file_view' slug=file.slug %}">
                 <img src="/media/file.png" alt="">
                 <span>{{ file.name }}.{{ file.extension }}</span>
-            </div>
+            </a>
         {% endfor %}
 
         {% for shortcut in shortcuts %}

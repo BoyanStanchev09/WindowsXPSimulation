@@ -59,7 +59,7 @@
                             <section>
                                 <span class="explorer-item-name">
                                     <img src="/media/file.png" alt="">
-                                    <span>{{ file }}</span>
+                                    <a href="{% url 'file_view' slug=file.slug %}">{{ file }}</a>
                                 </span>
                                 <span>.{{ file.extension }} file</span>
                                 <span></span>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/file.css' %}">
+{% endblock %}
+
+{% block title %}{{ file.name }}.{{ file.extension }} - Notepad{% endblock %}
+
+{% block content %}
+    <main class="notepad-page">
+        <section class="notepad-window" aria-label="Notepad window">
+            <header class="notepad-titlebar">
+                <div class="notepad-title">
+                    <img src="/media/file.png" alt="" aria-hidden="true">
+                    <span>{{ file.name }}.{{ file.extension }} - Notepad</span>
+                </div>
+                <div class="notepad-window-controls">
+                    <a href="{% url 'restart' %}" aria-label="Close Notepad and return to desktop" title="Return to desktop">&#215;</a>
+                </div>
+            </header>
+
+            <nav class="notepad-menubar" aria-label="Notepad menu">
+                <span>File</span><span>Edit</span><span>Format</span><span>View</span><span>Help</span>
+            </nav>
+
+            <div class="notepad-editor-wrap">
+                <textarea class="notepad-editor" aria-label="File contents" readonly spellcheck="false">{{ file.contents }}</textarea>
+            </div>
+            <footer class="notepad-statusbar">{{ file.name }}.{{ file.extension }}</footer>
+        </section>
+    </main>
+{% endblock %}
