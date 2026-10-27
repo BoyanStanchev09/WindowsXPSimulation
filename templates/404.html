@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 — Page Not Found</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: "Lucida Console", "Courier New", monospace;
+            background: #0000aa;
+            color: #fff;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            display: grid;
+            min-height: 100vh;
+            margin: 0;
+            padding: 32px;
+            place-items: center;
+            background: #0000aa;
+            font-size: clamp(13px, 1.6vw, 17px);
+            line-height: 1.6;
+        }
+
+        main { width: min(760px, 100%); }
+
+        .error-label {
+            display: inline-block;
+            margin-bottom: 28px;
+            padding: 0 8px;
+            background: #aaa;
+            color: #0000aa;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin: 0 0 22px;
+            font-size: 1em;
+            font-weight: normal;
+        }
+
+        p { margin: 0 0 18px; }
+
+        .error-code {
+            margin: 24px 0;
+            color: #d8e5ff;
+        }
+
+        a { color: #fff; }
+
+        @media (max-width: 480px) {
+            body { padding: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="error-label">Windows</div>
+        <h1>A problem has been detected and this page has been stopped to prevent damage to your browsing session.</h1>
+        <p>If this is the first time you have seen this stop screen, try returning to the desktop.</p>
+        <p class="error-code">STOP: 404_PAGE_NOT_FOUND</p>
+        <p>The page you requested could not be found.</p>
+        <p>Press <a href="{% url 'index' %}">any key</a> to return to the desktop.</p>
+    </main>
+</body>
+</html>

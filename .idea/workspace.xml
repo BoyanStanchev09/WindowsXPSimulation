@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="941d48d4-30c8-4d04-a8e1-2c7d53323ed6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0120488-8e26-46bd-a53f-9dcf73d2d3e1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0120488-8e26-46bd-a53f-9dcf73d2d3e1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0120488-8e26-46bd-a53f-9dcf73d2d3e1/storage_v2/_src_/database/windows_xp_simulation.8jQEJw/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0120488-8e26-46bd-a53f-9dcf73d2d3e1/storage_v2/_src_/database/windows_xp_simulation.8jQEJw/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/files/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/folders/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/folders/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/folders/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/folders/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/folders/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/folders/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/folders/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/folders/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shutdown.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shutdown.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windowsxpsimulation/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/windowsxpsimulation/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windowsxpsimulation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/windowsxpsimulation/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/folder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/folder.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/folders/folder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/folders/folder.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +113,7 @@
       <workItem from="1792960583820" duration="4634000" />
       <workItem from="1793019448008" duration="17818000" />
       <workItem from="1793057355260" duration="9166000" />
-      <workItem from="1793102651435" duration="3513000" />
+      <workItem from="1793102651435" duration="3816000" />
     </task>
     <servers />
   </component>

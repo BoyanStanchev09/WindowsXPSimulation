@@ -31,29 +31,15 @@
             </nav>
 
             <div class="explorer-toolbar" aria-label="Folder toolbar">
-                <span>← Back</span><span>→ Forward</span><span>↑ Up</span>
-                <span class="explorer-toolbar-separator"></span>
-                <span>Search</span><span>Folders</span>
+                <a class="explorer-desktop-button" href="{% url 'folder_root' %}">To Disk C (C:)</a>
             </div>
 
             <div class="explorer-address-row">
                 <span>Address</span>
                 <div class="explorer-address-field">{% if curr_folder %}{{ curr_folder.location }}{% else %}C:\{% endif %}</div>
-                <span class="explorer-address-go">Go</span>
             </div>
 
             <div class="explorer-body">
-                <aside class="explorer-sidebar">
-                    <section>
-                        <h2>Folder Tasks</h2>
-                        <div class="explorer-sidebar-panel">Select an item to view its tasks.</div>
-                    </section>
-                    <section>
-                        <h2>Other Places</h2>
-                        <div class="explorer-sidebar-panel">My Computer</div>
-                    </section>
-                </aside>
-
                 <section class="explorer-contents" aria-label="Folder contents">
                     <div class="explorer-columns">
                         <span>Name</span><span>Type</span><span>Size</span>
@@ -61,34 +47,46 @@
                     <div class="explorer-empty-space">
                         {% for f in folders %}
                             <section>
-                               <img src="/media/folder.png" alt="">
-                                <a href="{% url 'folder_view' slug=f.slug %}">{{ f.name }}</a>
+                                <span class="explorer-item-name">
+                                    <img src="/media/folder.png" alt="">
+                                    <a href="{% url 'folder_view' slug=f.slug %}">{{ f.name }}</a>
+                                </span>
+                                <span>Folder</span>
+                                <span></span>
                             </section>
                         {% endfor %}
                         {% for file in files %}
                             <section>
-                               <img src="/media/file.png" alt="">
-                                {{  file }}
+                                <span class="explorer-item-name">
+                                    <img src="/media/file.png" alt="">
+                                    <span>{{ file }}</span>
+                                </span>
+                                <span>.{{ file.extension }} file</span>
+                                <span></span>
                             </section>
                         {% endfor %}
                         {% for s in shortcuts %}
                             <section>
-                                <span class="explorer-item-icon explorer-shortcut-icon">
-                                {% if s.from_file %}
-                                    <img src="/media/file.png" alt="">
-                                    <img class="explorer-shortcut-badge" src="/media/shortcut.png" alt="">
-                                {% elif s.from_folder %}
-                                    <img src="/media/folder.png" alt="">
-                                    <img class="explorer-shortcut-badge" src="/media/shortcut.png" alt="">
-                                {% endif %}
-                                </span>
-                                <span>
+                                <span class="explorer-item-name">
+                                    <span class="explorer-item-icon explorer-shortcut-icon">
                                     {% if s.from_file %}
-                                        {{ s.from_file.name }}.{{ s.from_file.extension }}
+                                        <img src="/media/file.png" alt="">
+                                        <img class="explorer-shortcut-badge" src="/media/shortcut.png" alt="">
                                     {% elif s.from_folder %}
-                                        {{ s.from_folder.name }}
+                                        <img src="/media/folder.png" alt="">
+                                        <img class="explorer-shortcut-badge" src="/media/shortcut.png" alt="">
                                     {% endif %}
+                                    </span>
+                                    <span>
+                                        {% if s.from_file %}
+                                            {{ s.from_file.name }}.{{ s.from_file.extension }}
+                                        {% elif s.from_folder %}
+                                            {{ s.from_folder.name }}
+                                        {% endif %}
+                                    </span>
                                 </span>
+                                <span>Shortcut</span>
+                                <span></span>
                             </section>
                         {% endfor %}
                     </div>
