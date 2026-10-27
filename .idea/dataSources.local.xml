@@ -15,7 +15,11 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database" qname="windows_xp_simulation">
-              <node kind="schema" qname="public" />
+              <node kind="schema">
+                <name qname="information_schema" />
+                <name qname="pg_catalog" />
+                <name qname="public" />
+              </node>
             </node>
           </node>
         </introspection-scope>

@@ -27,8 +27,8 @@ urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('restart/', RestartView.as_view(), name='restart'),
     path('shutdown/', ShutDownView.as_view(), name='shutdown'),
-    path('files/', include('files.urls')),
-    path('folders/', include('folders.urls')),
+    path('files/', include('files.urls'), name='files'),
+    path('folders/', include('folders.urls'), name='folders'),
 ]
 
 if settings.DEBUG:

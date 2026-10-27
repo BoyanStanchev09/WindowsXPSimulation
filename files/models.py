@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 from files.choices import ExtensionChoices
 
@@ -16,6 +17,7 @@ class File(models.Model):
     folder = models.ForeignKey(
         'folders.Folder', on_delete=models.SET_NULL, null=True, blank=True)
     short_cut = models.OneToOneField('folders.ShortCut', on_delete=models.SET_NULL, null=True, blank=True)
+    slug = models.SlugField(max_length=50, unique=True, blank=True)
 
     def __str__(self):
         return self.name + '.' + self.extension
@@ -24,4 +26,10 @@ class File(models.Model):
     def location(self):
         if not self.folder:
             return 'C:'
-        return f'{self.folder.location}\\{self.folder.name}'
+        return f'{self.folder.location}\\{self.folder.name}.{self.extension}'
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.location)
+        super().save(*args, **kwargs)
+
+

@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import QuerySet, Q
+from django.utils.text import slugify
 
 from files.models import File
 
@@ -10,7 +11,7 @@ class Folder(models.Model):
     name = models.CharField(max_length=25, unique=True)
     parent_folder = models.OneToOneField(
         'Folder', on_delete=models.SET_NULL, null=True, blank=True)
-    short_cut = models.OneToOneField('ShortCut', on_delete=models.SET_NULL, null=True, blank=True)
+    slug = models.SlugField(max_length=50, unique=True, blank=True)
 
     @property
     def contents(self) -> tuple[QuerySet[File]|None, QuerySet[Folder]|None, QuerySet[ShortCut]|None]:
@@ -21,13 +22,40 @@ class Folder(models.Model):
 
     @property
     def location(self) -> str:
-        locations_str = self.name
-        while self.parent_folder:
-            locations_str = f'{self.parent_folder.name}\\{locations_str}'
-        return 'C:\\' + locations_str
+        names = []
+        current = self
+        visited = set()
+
+        while current:
+            marker = current.pk if current.pk else id(current)
+            if marker in visited:
+                raise ValueError("A folder cannot be its own ancestor.")
+            visited.add(marker)
+            names.append(current.name)
+            current = current.parent_folder
+
+        return 'C:\\' + '\\'.join(reversed(names))
+
+    def clean(self):
+        super().clean()
+        current = self.parent_folder
+        visited = {self.pk} if self.pk is not None else set()
+
+        while current is not None:
+            marker = current.pk if current.pk is not None else id(current)
+            if marker in visited:
+                raise ValidationError({
+                    'parent_folder': 'A folder cannot be its own ancestor.'
+                })
+            visited.add(marker)
+            current = current.parent_folder
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.location)
+        super().save(*args, **kwargs)
 
 
 class ShortCut(models.Model):
@@ -55,6 +83,7 @@ class ShortCut(models.Model):
         super().clean()
         if (self.from_file is None) == (self.from_folder is None):
             raise ValidationError("Choose exactly one target: a file or a folder.")
+
 
     @property
     def to_desktop(self) -> bool:

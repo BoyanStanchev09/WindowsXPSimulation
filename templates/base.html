@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}?v=3">
     {% block extra_head %}{% endblock %}
 
 </head>
@@ -28,8 +28,12 @@
             <span aria-hidden="true">Desktop</span>
             Windows XP Simulation
         </div>
-        <div class="tray" aria-label="System tray">12:00 PM</div>
+        <a class="taskbar-app-button" href="{% url 'folder_root' %}" aria-label="Open desktop folder" title="Open desktop folder">
+            <img src="/media/folder.png" alt="" aria-hidden="true">
+        </a>
+        <time class="tray" id="taskbar-clock" aria-label="Current local time"></time>
     </footer>
+    <script src="{% static 'js/taskbar-clock.js' %}"></script>
 </body>
 
 </html>

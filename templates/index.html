@@ -3,16 +3,16 @@
 
 {% block content %}
     <div class="desktop-icon" id="this-pc">
-        <img src="/media/this-pc.png" alt="">
+        <a class="desktop-icon-link" href="{% url 'folder_root' %}"><img src="/media/this-pc.png" alt=""></a>
         <span>This PC</span>
     </div>
 
     <div class="desktop-icons">
         {% for folder in folders %}
-            <div class="desktop-icon">
-            <img src="/media/folder.png" alt="">
+            <a class="desktop-icon" href="{% url 'folder_view' slug=folder.slug %}">
+                <img src="/media/folder.png" alt="">
                 <span>{{ folder.name }}</span>
-            </div>
+            </a>
         {% endfor %}
 
         {% for file in files %}

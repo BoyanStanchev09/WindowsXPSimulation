@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'css/folder.css' %}">
+{% endblock %}
+
+{% block title %}Folder{% endblock %}
+
+{% block content %}
+    <main class="folder-view">
+        <section class="explorer-window" aria-label="Folder window">
+            <header class="explorer-titlebar">
+                <div class="explorer-title">
+                    <img src="/media/folder.png" alt="" aria-hidden="true">
+                    <span>{% if curr_folder %}{{ curr_folder.name }}{% else %}C:\{% endif %}</span>
+                </div>
+                <div class="explorer-window-controls">
+                    {% if curr_folder and curr_folder.parent_folder %}
+                        <a href="{% url 'folder_view' slug=curr_folder.parent_folder.slug %}" aria-label="Go to parent folder" title="Up">&#8593;</a>
+                    {% else %}
+                        <a href="{% url 'folder_root' %}" aria-label="Go to parent folder" title="Up">&#8593;</a>
+                    {% endif %}
+                    <a href="{% url 'restart' %}" aria-label="Close window" title="Restart">&#215;</a>
+                </div>
+            </header>
+
+            <nav class="explorer-menubar" aria-label="Folder menu">
+                <span>File</span><span>Edit</span><span>View</span>
+                <span>Favorites</span><span>Tools</span><span>Help</span>
+            </nav>
+
+            <div class="explorer-toolbar" aria-label="Folder toolbar">
+                <span>← Back</span><span>→ Forward</span><span>↑ Up</span>
+                <span class="explorer-toolbar-separator"></span>
+                <span>Search</span><span>Folders</span>
+            </div>
+
+            <div class="explorer-address-row">
+                <span>Address</span>
+                <div class="explorer-address-field">{% if curr_folder %}{{ curr_folder.location }}{% else %}C:\{% endif %}</div>
+                <span class="explorer-address-go">Go</span>
+            </div>
+
+            <div class="explorer-body">
+                <aside class="explorer-sidebar">
+                    <section>
+                        <h2>Folder Tasks</h2>
+                        <div class="explorer-sidebar-panel">Select an item to view its tasks.</div>
+                    </section>
+                    <section>
+                        <h2>Other Places</h2>
+                        <div class="explorer-sidebar-panel">My Computer</div>
+                    </section>
+                </aside>
+
+                <section class="explorer-contents" aria-label="Folder contents">
+                    <div class="explorer-columns">
+                        <span>Name</span><span>Type</span><span>Size</span>
+                    </div>
+                    <div class="explorer-empty-space">
+                        {% for f in folders %}
+                            <section>
+                               <img src="/media/folder.png" alt="">
+                                <a href="{% url 'folder_view' slug=f.slug %}">{{ f.name }}</a>
+                            </section>
+                        {% endfor %}
+                        {% for file in files %}
+                            <section>
+                               <img src="/media/file.png" alt="">
+                                {{  file }}
+                            </section>
+                        {% endfor %}
+                        {% for s in shortcuts %}
+                            <section>
+                                <span class="explorer-item-icon explorer-shortcut-icon">
+                                {% if s.from_file %}
+                                    <img src="/media/file.png" alt="">
+                                    <img class="explorer-shortcut-badge" src="/media/shortcut.png" alt="">
+                                {% elif s.from_folder %}
+                                    <img src="/media/folder.png" alt="">
+                                    <img class="explorer-shortcut-badge" src="/media/shortcut.png" alt="">
+                                {% endif %}
+                                </span>
+                                <span>
+                                    {% if s.from_file %}
+                                        {{ s.from_file.name }}.{{ s.from_file.extension }}
+                                    {% elif s.from_folder %}
+                                        {{ s.from_folder.name }}
+                                    {% endif %}
+                                </span>
+                            </section>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+
+            <footer class="explorer-statusbar">Ready</footer>
+        </section>
+    </main>
+{% endblock %}

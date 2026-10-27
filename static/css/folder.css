@@ -1,0 +1,234 @@
+/* Styles for the Windows Explorer folder page. */
+.folder-view {
+    display: flex;
+    box-sizing: border-box;
+    min-height: calc(100vh - 40px);
+    padding: 28px 24px 52px;
+    justify-content: center;
+    color: #222;
+    font: 12px Tahoma, Arial, sans-serif;
+    text-shadow: none;
+}
+
+.explorer-window {
+    display: flex;
+    flex-direction: column;
+    width: min(900px, 100%);
+    height: min(560px, calc(100vh - 120px));
+    min-height: 340px;
+    overflow: hidden;
+    border: 1px solid #123b7a;
+    border-radius: 6px 6px 0 0;
+    background: #f1f4fa;
+    box-shadow: 3px 4px 12px #0008;
+}
+
+.explorer-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    min-height: 32px;
+    padding: 3px 5px 3px 9px;
+    color: #fff;
+    background: linear-gradient(180deg, #3c8cf2, #1760c5 55%, #0d4da9);
+    font-weight: bold;
+    text-shadow: 1px 1px #16427a;
+}
+
+.explorer-title,
+.explorer-window-controls {
+    display: flex;
+    align-items: center;
+}
+
+.explorer-title { gap: 7px; }
+.explorer-title img { width: 18px; height: 18px; object-fit: contain; }
+.explorer-window-controls { gap: 3px; }
+
+.explorer-window-controls a {
+    display: grid;
+    width: 20px;
+    height: 20px;
+    place-items: center;
+    border: 1px solid #dce9fb;
+    border-radius: 2px;
+    background: linear-gradient(#78b5fb, #3478d0);
+    color: #fff;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.explorer-window-controls a:last-child {
+    border-color: #ffd6c9;
+    background: linear-gradient(#f58b68, #d84b31);
+}
+
+.explorer-window-controls a:hover,
+.explorer-window-controls a:focus-visible {
+    filter: brightness(1.12);
+    outline: 1px solid #fff;
+}
+
+.explorer-menubar,
+.explorer-toolbar,
+.explorer-address-row {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    border-bottom: 1px solid #c5cbd4;
+}
+
+.explorer-menubar {
+    gap: 19px;
+    min-height: 28px;
+    padding: 0 12px;
+    background: #f7f8fa;
+}
+
+.explorer-toolbar {
+    gap: 17px;
+    min-height: 38px;
+    padding: 0 12px;
+    color: #333;
+    background: linear-gradient(#fff, #e8eaf0);
+}
+
+.explorer-toolbar-separator { height: 22px; border-left: 1px solid #b8bec8; }
+
+.explorer-address-row {
+    gap: 9px;
+    min-height: 34px;
+    padding: 4px 9px;
+    background: #f2f3f6;
+}
+
+.explorer-address-field {
+    flex: 1;
+    box-sizing: border-box;
+    height: 24px;
+    padding: 4px 7px;
+    overflow: hidden;
+    border: 1px solid #aeb5bf;
+    background: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.explorer-address-go {
+    padding: 4px 9px;
+    border: 1px solid #9ea8b5;
+    border-radius: 2px;
+    background: linear-gradient(#fff, #e3e7ee);
+}
+
+.explorer-body { display: flex; flex: 1; min-height: 0; }
+
+.explorer-sidebar {
+    box-sizing: border-box;
+    flex: 0 0 195px;
+    padding: 12px 10px;
+    overflow: auto;
+    border-right: 1px solid #b9c4d3;
+    background: linear-gradient(90deg, #dbe8f8, #edf3fb);
+}
+
+.explorer-sidebar section {
+    margin-bottom: 14px;
+    overflow: hidden;
+    border: 1px solid #a8bad2;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.explorer-sidebar h2 {
+    margin: 0;
+    padding: 6px 8px;
+    color: #174c91;
+    background: linear-gradient(#fff, #dbe8f8);
+    font-size: 12px;
+}
+
+.explorer-sidebar-panel { min-height: 38px; padding: 9px 8px; color: #333; }
+
+.explorer-contents {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    background: #fff;
+}
+
+.explorer-columns {
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) 140px 90px;
+    flex-shrink: 0;
+    min-height: 24px;
+    border-bottom: 1px solid #c5cbd4;
+    background: linear-gradient(#fff, #edf0f4);
+}
+
+.explorer-columns span { padding: 5px 8px 3px; border-right: 1px solid #d1d5dc; }
+
+.explorer-empty-space {
+    flex: 1;
+    min-height: 0;
+    padding: 8px;
+    overflow: auto;
+}
+
+.explorer-empty-space > section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 32px;
+    padding: 3px 8px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.explorer-empty-space > section:hover { border-color: #9bbfe8; background: #e8f2ff; }
+
+.explorer-empty-space img { width: 20px; height: 20px; object-fit: contain; }
+.explorer-empty-space a { color: #174c91; text-decoration: none; }
+.explorer-empty-space a:hover { color: #0b3975; text-decoration: underline; }
+
+.explorer-item-icon {
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+}
+
+.explorer-shortcut-icon > img:first-child { width: 20px; height: 20px; }
+.explorer-shortcut-icon .explorer-shortcut-badge {
+    position: absolute;
+    right: -3px;
+    bottom: -2px;
+    width: 11px;
+    height: 11px;
+    padding: 1px;
+    border-radius: 2px;
+    background: #fff;
+}
+
+.explorer-statusbar {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    min-height: 22px;
+    padding: 4px 8px;
+    border-top: 1px solid #c5cbd4;
+    background: #f4f5f7;
+    color: #555;
+    font-size: 11px;
+}
+
+@media (max-width: 560px) {
+    .folder-view { min-height: calc(100vh - 40px); padding: 14px 8px 48px; }
+    .explorer-window { height: calc(100vh - 100px); min-height: 300px; }
+    .explorer-sidebar { flex-basis: 132px; padding: 8px 5px; }
+    .explorer-toolbar { gap: 9px; padding: 0 7px; }
+    .explorer-columns { grid-template-columns: minmax(85px, 1fr) 65px 50px; }
+}

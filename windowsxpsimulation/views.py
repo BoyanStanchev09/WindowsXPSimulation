@@ -16,7 +16,6 @@ class IndexView(TemplateView):
             'folders': Folder.objects.filter(parent_folder__isnull=True),
             'files': File.objects.filter(folder__isnull=True),
             'shortcuts': ShortCut.objects.filter(to__isnull=True),
-            'curr_time': timezone.now(),
         })
         return context
 

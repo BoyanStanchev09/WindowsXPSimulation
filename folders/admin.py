@@ -6,8 +6,11 @@ from folders.models import Folder, ShortCut
 # Register your models here.
 @admin.register(Folder)
 class FolderAdmin(admin.ModelAdmin):
-    pass
+    fields = ('name', 'parent_folder')
 
 @admin.register(ShortCut)
 class ShortCutAdmin(admin.ModelAdmin):
-    pass
+    fieldsets = (
+        ('Location', {'fields': ['to']}),
+        ('From', {'fields': ('from_file', 'from_folder')}),
+    )
