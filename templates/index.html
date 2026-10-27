@@ -23,7 +23,7 @@
         {% endfor %}
 
         {% for shortcut in shortcuts %}
-            <div class="desktop-icon">
+            <a class="desktop-icon" href="{% url 'shortcut' pk=shortcut.pk %}">
                 <span class="desktop-icon-image">
                 {% if shortcut.from_file %}
                     <img src="/media/file.png" alt="">
@@ -40,7 +40,7 @@
                         {{ shortcut.from_folder.name }}
                     {% endif %}
                 </span>
-            </div>
+            </a>
         {% endfor %}
     </div>
 

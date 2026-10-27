@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
-from django.views.generic import TemplateView
+from django.urls import reverse
+from django.views.generic import TemplateView, RedirectView
 
 from files.models import File
 from folders.models import Folder, ShortCut
@@ -29,3 +30,17 @@ class FolderView(TemplateView):
             'shortcuts': shortcuts,
         })
         return context
+
+class ShortCutRedirectView(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        shortcut = get_object_or_404(ShortCut, pk=kwargs['pk'])
+        target_folder = shortcut.from_folder
+
+        if target_folder is None and shortcut.from_file is not None:
+            target_folder = shortcut.from_file.folder
+
+        if target_folder is None:
+            return reverse('folder_root')
+
+        return reverse('folder_view', kwargs={'slug': target_folder.slug})
+

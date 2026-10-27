@@ -78,11 +78,13 @@
                                     {% endif %}
                                     </span>
                                     <span>
-                                        {% if s.from_file %}
-                                            {{ s.from_file.name }}.{{ s.from_file.extension }}
-                                        {% elif s.from_folder %}
-                                            {{ s.from_folder.name }}
-                                        {% endif %}
+                                        <a href="{% url 'shortcut' pk=s.pk %}">
+                                            {% if s.from_file %}
+                                                {{ s.from_file.name }}.{{ s.from_file.extension }}
+                                            {% elif s.from_folder %}
+                                                {{ s.from_folder.name }}
+                                            {% endif %}
+                                        </a>
                                     </span>
                                 </span>
                                 <span>Shortcut</span>
